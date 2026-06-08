@@ -1,5 +1,5 @@
-cps/data/*.db
-cps/appsettings.Production.json
-cew/appsettings.Production.json
+app/cps/data/*.db
+app/cps/appsettings.Production.json
+app/cew/appsettings.Production.json
 secrets/*.txt
 *.log

@@ -4,8 +4,8 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 SECRETS_DIR="$ROOT_DIR/secrets"
-CPS_DIR="$ROOT_DIR/cps"
-CEW_DIR="$ROOT_DIR/cew"
+CPS_DIR="$ROOT_DIR/app/cps"
+CEW_DIR="$ROOT_DIR/app/cew"
 
 echo "Generating secrets if missing..."
 

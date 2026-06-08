@@ -13,9 +13,9 @@ The stack is configured for local development and single production ready usage 
 
 - `compose.yaml` — Docker Compose definition for all services
 - `init.sh` — initialization script for generating secret files and copying default configs
-- `cps/` — credential provisioning server build context and data folder
-- `cpw/` — card printing worker repository and logs folders
-- `cew/` — card encoding worker repository and logs folders
+- `app/cps/` — credential provisioning server build context and data folder
+- `app/cpw/` — card printing worker repository and logs folders
+- `app/cew/` — card encoding worker repository and logs folders
 - `secrets/` — local secret files used by the Compose stack
 
 ## Prerequisites
@@ -43,9 +43,9 @@ docker compose up --build -d
 
 ### `cps` — Credential Provisioning Server
 
-- Built from `cps/Dockerfile`
-- Uses `cps/data` for database, import files, and certificates
-- Configured by `cps/appsettings.Production.json`
+- Built from `app/cps/Dockerfile`
+- Uses `app/cps/data` for database, import files, and certificates
+- Configured by `app/cps/appsettings.Production.json`
 - Exposes HTTP at port `5000`
 - Uses secrets:
   - `secrets/cps_secret_key.txt`
@@ -57,8 +57,8 @@ docker compose up --build -d
 - Runs image `leosac/leosac-card-printing-worker:latest`
 - Exposes HTTP at port `4000`
 - Uses local volumes:
-  - `cpw/repository`
-  - `cpw/logs`
+  - `app/cpw/repository`
+  - `app/cpw/logs`
 - Configured by environment variables only
 - Uses secrets:
   - `secrets/cpw_api_key.txt`
@@ -69,9 +69,9 @@ docker compose up --build -d
 - Runs image `leosac/leosac-card-encoding-worker:latest`
 - Exposes HTTP at port `5100`
 - Uses local volumes:
-  - `cew/repository`
-  - `cew/logs`
-- Configured by `cew/appsettings.Production.json`
+  - `app/cew/repository`
+  - `app/cew/logs`
+- Configured by `app/cew/appsettings.Production.json`
 - Uses secrets:
   - `secrets/cew_api_key.txt`
   - `secrets/cew_secret_key.txt`
@@ -85,8 +85,8 @@ The `init.sh` script performs two actions:
 
 After run, if you want to customize the default settings, edit:
 
-- `cps/appsettings.Production.json`
-- `cew/appsettings.Production.json`
+- `app/cps/appsettings.Production.json`
+- `app/cew/appsettings.Production.json`
 
 Then restart the stack:
 
