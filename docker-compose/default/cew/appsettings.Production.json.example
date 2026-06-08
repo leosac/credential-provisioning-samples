@@ -1,0 +1,28 @@
+{
+  "AllowedHosts": "*",
+  "Options": {
+    "TemplateRepository": "/data/repository",
+    "ManagementApi": true,
+    "APIKeyFile": "/secrets/cew_api_key.txt",
+    "DataIntegrityKey": null,
+    "EnableSwagger": false,
+    "ReaderType": "Remote",
+    "ContactlessReader": "",
+    "SAMReader": "SAM",
+    "JWT": {
+      "Issuer": "card.leosac.com",
+      "KeyFile": "/secrets/cew_secret_key.txt"
+    }
+  },
+  "Logging": {
+	"LogLevel": {
+		"Default": "Information",
+		"Microsoft.AspNetCore": "Warning"
+	},
+	"File": {
+		"Path": "/data/logs/leosac-cew.log",
+		"Append": true,
+		"MinLevel": "Warning"
+	}
+  }
+}

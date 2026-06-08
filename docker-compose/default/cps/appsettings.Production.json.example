@@ -1,0 +1,98 @@
+{
+    "AllowedHosts": "*",
+    "AuthenticationBackend": {
+      "Method": "Internal",
+      "Seed": "None",
+      "SeedField": null,
+      "RoleMapping": {
+        "Administrator": "99999",
+        "User": "",
+        "HasAllRolesBelow": true
+      }
+    },
+    "ConnectionStrings": {
+        "DefaultConnection": "Data Source=/data/CredentialProvisioning.db"
+    },
+    "Database": {
+        "AlwaysCleanAndCreateDatabase": false,
+        "ImportPath": "/data/import",
+        "InitializeDatabaseIfRequired": true,
+        "Provider": "Sqlite",
+        "UseMigration": true
+    },
+    "DataRetention": {
+      "Enabled": false,
+      "CredentialDays": 90,
+      "ProductionRecordDays": 365,
+      "ProductionSetDays": 90,
+      "ProductionTokenDays": 30,
+	  "ProductionSetStateFilters": [ "Completed", "Failed" ]
+    },
+	"Features": {
+	  "AllowLogsView": true,
+	  "EnableManagementApi": false,
+	  "EnableSwagger": false,
+	  "EnforceHttps": false,
+	  "UseCdn": false
+	},
+    "Hooks": [],
+    "JWT": {
+        "Expiration": 600,
+        "Issuer": "card.leosac.com",
+        "Key": null,
+        "KeyFile": "/run/secrets/cps_secret_key"
+    },
+    "Kestrel": {
+      "Endpoints": {
+        "Http": {
+          "Url": "http://0.0.0.0:5000"
+        },
+        "Https": {
+          "Url": "https://0.0.0.0:5001",
+          "Certificate": {
+            "Path": "/data/certificates/card.leosac.com.crt",
+            "KeyPath": "/data/certificates/card.leosac.com.key"
+          }
+        }
+      }
+    },
+    "Logging": {
+        "LogLevel": {
+            "Default": "Information",
+            "Microsoft.AspNetCore": "Warning"
+        },
+        "File": {
+            "Path": "/data/logs/leosac-cps.log",
+            "Append": true,
+            "MinLevel": "Warning"
+        }
+    },
+    "User": {
+        "AllowRegistration": false,
+        "AllowUsernameSelection": true,
+        "AuthenticationBackend": null,
+        "DefaultRoles": [
+            "User"
+        ],
+        "DefaultTeam": "My Company",
+        "UsernameHttpHeader": "SSL_CLIENT_S_DN"
+    },
+    "Workers": {
+		"RFID": {
+		  "Address": "http://host.docker.internal:5100",
+		  "ApiKey": "",
+		  "ApiKeyFile": "/run/secrets/cew_api_key",
+		  "Policy": "Server",
+		  "PublicAddress": "http://localhost:5100",
+		  "QueueFromServer": false
+		},
+        "Print": {
+            "Address": "http://host.docker.internal:4000",
+            "ApiKey": "",
+            "ApiKeyFile": "/run/secrets/cpw_api_key",
+            "Policy": "Server",
+            "PublicAddress": "https://localhost:4000",
+			"QueueFromServer": false
+        }
+    }
+}
