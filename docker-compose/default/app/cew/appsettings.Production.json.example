@@ -3,7 +3,7 @@
   "Options": {
     "TemplateRepository": "/data/repository",
     "ManagementApi": true,
-    "APIKeyFile": "/secrets/cew_api_key.txt",
+    "APIKeyFile": "/run/secrets/cew_api_key.txt",
     "DataIntegrityKey": null,
     "EnableSwagger": false,
     "ReaderType": "Remote",
@@ -11,7 +11,7 @@
     "SAMReader": "SAM",
     "JWT": {
       "Issuer": "card.leosac.com",
-      "KeyFile": "/secrets/cew_secret_key.txt"
+      "KeyFile": "/run/secrets/cew_secret_key.txt"
     }
   },
   "Logging": {
