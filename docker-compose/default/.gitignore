@@ -1,4 +1,6 @@
 app/cps/data/*.db
+app/cps/data/*.db-*
+app/cps/shared/*.json
 app/cps/appsettings.Production.json
 app/cew/appsettings.Production.json
 secrets/*.txt
