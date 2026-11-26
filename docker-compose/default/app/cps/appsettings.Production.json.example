@@ -79,7 +79,7 @@
     },
     "Workers": {
 		"RFID": {
-		  "Address": "http://host.docker.internal:5100",
+		  "Address": "http://cew:5100",
 		  "ApiKey": "",
 		  "ApiKeyFile": "/run/secrets/cew_api_key",
 		  "Policy": "Server",
@@ -87,7 +87,7 @@
 		  "QueueFromServer": false
 		},
         "Print": {
-            "Address": "http://host.docker.internal:4000",
+            "Address": "http://cpw:4000",
             "ApiKey": "",
             "ApiKeyFile": "/run/secrets/cpw_api_key",
             "Policy": "Server",

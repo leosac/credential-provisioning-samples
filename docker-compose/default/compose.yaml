@@ -23,6 +23,7 @@ services:
       start_period: 30s
     secrets:
       - cps_secret_key
+      - cew_api_key
       - cpw_api_key
   cpw:
     image: "leosac/leosac-card-printing-worker:latest"
